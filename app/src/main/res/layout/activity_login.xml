@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.socialnetwork.ui.auth.AuthViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="145dp"
+                android:layout_height="130dp"
+                android:layout_marginBottom="32dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/sharecode" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your email and password"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="email@domain.com"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background"
+                android:text="@={viewModel.email}" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background"
+                android:text="@={viewModel.password}" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_background_black"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{() -> viewModel.login()}" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="32dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You forgot your password , "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Click here"
+                    android:onClick="@{() -> viewModel.forgetPassword()}"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Account"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_background_green"
+                android:onClick="@{() -> viewModel.register()}" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

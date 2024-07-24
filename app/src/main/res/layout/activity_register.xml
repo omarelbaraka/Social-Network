@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.socialnetwork.ui.register.RegisterFragmentViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="155dp"
+                android:layout_height="151dp"
+                android:layout_marginBottom="32dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/sharecode" />
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:text="@={viewModel.name}"
+                android:layout_marginBottom="16dp"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="email@domain.com"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:text="@={viewModel.email}"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:text="@={viewModel.password}"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background" />
+
+            <EditText
+                android:id="@+id/etBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bio"
+                android:padding="12dp"
+                android:text="@={viewModel.bio}"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background" />
+
+            <EditText
+                android:id="@+id/etCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="City"
+                android:padding="12dp"
+                android:text="@={viewModel.city}"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background" />
+
+            <Button
+                android:id="@+id/btn_create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Account"
+                android:textColor="@android:color/white"
+                android:onClick="@{() -> viewModel.register()}"
+                android:background="@drawable/button_background"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Enveloppez le texte et le lien dans un LinearLayout -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="32dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You have already an account , "
+                    android:textSize="16sp"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:onClick="@{() -> viewModel.goToLogin()}"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>
